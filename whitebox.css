@@ -1,0 +1,30 @@
+html {
+    padding: 10px;
+    font-size: 14px;
+}
+
+.btn-trade-out {
+    width: 220px;
+    margin: 2px;
+}
+.label-developer {
+    display: inline-block;
+    width: 130px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.hide-me {
+    display: none;
+}
+
+.show-me {
+    display:block;
+}
+
+.form-char-creation {
+    border: 1px solid black;
+    padding:10px;
+}

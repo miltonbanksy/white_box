@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Box</title>
+    <link rel="stylesheet" href="whitebox.css">
+</head>
+<body>
+    <h1>White Box</h1>
+    <details>
+        <summary class="pointer"><b>Character Generator</b></summary>
+
+        <div class="form-char-creation" id="form-char-creation-1b-generate-class">
+            <input type="radio" id="class-choose" name="choose-or-roll-class" value="class-choose">
+            <label for="class-choose">I will choose a Class</label>
+            <br>
+            <input type="radio" id="class-random" name="choose-or-roll-class" value="class-random">
+            <label for="class-random">Give me a random Class</label>
+        </div>
+
+        <div class="form-char-creation hide-me" id="form-char-creation-choose-class">
+            <input type="radio" id="choose-class-fighter" name="choose-class" value="Fighter">
+            <label for="choose-class-fighter">Fighter</label>
+            <br>
+            <input type="radio" id="choose-class-magic-user" name="choose-class" value="Magic User">
+            <label for="choose-class-magic-user">Magic User</label>
+            <br>
+            <input type="radio" id="choose-class-cleric" name="choose-class" value="Cleric">
+            <label for="choose-class-cleric">Cleric</label>
+        </div>
+
+        <div class="form-char-creation hide-me" id="form-char-creation-choose-stat-method">
+            <b>Generate Stats</b>
+             <br>
+            <input type="radio" id="choose-stat-method_1" name="choose-stat-method" value="stat-method-1">
+            <label for="choose-stat-method_1"><b>Classic</b> 3d6, randomly distributed.</label>
+            <br>
+            <input type="radio" id="choose-stat-method_2" name="choose-stat-method" value="stat-method-2">
+            <label for="choose-stat-method_2"><b>Classic & Classy</b> 3d6, distributed in favor of chosen Class.</label>
+            <br>
+            <input type="radio" id="choose-stat-method_3" name="choose-stat-method" value="stat-method-3">
+            <label for="choose-stat-method_3"><b>Heroic</b> 4d6 (drop lowest), randomly distributed.</label>
+            <br>
+            <input type="radio" id="choose-stat-method_4" name="choose-stat-method" value="stat-method-4">
+            <label for="choose-stat-method_4"><b>Heroic & Classy</b> 4d6 (drop lowest), distributed in favor of chosen Class.</label>
+            <br>
+            <input type="radio" id="choose-stat-method_5" name="choose-stat-method" value="stat-method-5">
+            <label for="choose-stat-method_5"><b>Fair</b> Standard Array [15, 14, 13, 12, 10, 8], randomly distributed.</label>
+            <br>
+            <input type="radio" id="choose-stat-method_6" name="choose-stat-method" value="stat-method-6">
+            <label for="choose-stat-method_6"><b>Fair & Classy</b> Standard Array [15, 14, 13, 12, 10, 8], distributed in favor of chosen Class.</label>
+        </div>
+        
+        <br>
+        
+        <div class="form-char-creation hide-me" id="form-char-creation-summary">
+            <div id="display-char-class"></div>
+            <div id="display-char-experience"></div>
+            <div id="display-char-hp"></div>
+            <br>
+            <div id="display-char-stats"></div>
+            <br>
+            <div id="display-char-bonuses"></div>
+            <br>
+            <div id="display-char-gear"></div>
+        </div>
+        
+        <br>
+
+        <!--Magic User / Cleric Form, Hidden unless Magic User / Cleric selected-->
+        <div class="form-char-creation hide-me" id="form-char-creation-mage">
+            <p id="spell-info">Choose or randomize one first-level spell</p>
+            <pre id="display-char-spell-choice"></pre>
+        </div>
+
+        <br>
+
+        <!--Additional information for all classes-->
+        <div class="form-char-creation hide-me" id="form-char-creation-additional-details">
+            <!--To do...-->
+        </div>
+
+        <br><br>
+    </details>
+    <details>
+        <summary class="pointer"><b>Treasure</b></summary>
+        <p>A monster guards an amount of treasure equal to 1-4 times its XP value in gold pieces. Wandering monsters never carry treasure with them.</p>
+        <span>Enter the monster's XP:</span>
+        <label for="input-monster-xp"></label>
+        <input id="input-monster-xp" type="text">
+        <button id="btn-calculate-treasure">Calculate Treasure</button>
+        <p id="display-treasure"></p>
+        
+        <h3>Treasure Trade Outs</h3>
+        <p>Treasures may contain coins, gems, jewelry, and/or magical items. There is a 10% chance of trading out coins for a 'Minor', 'Medium', or 'Major' item on either the Gem/Jewelry or Magic Item table. If the trade-out is successfull, there is a 5% chance of obtaining a Magic item.</p>
+        
+        <button class="btn-trade-out" id="btn-trade-out-major">Trade Out 5000 gp (Major Item)</button>
+        <br>
+        <button class="btn-trade-out" id="btn-trade-out-medium">Trade Out 1000 gp (Medium Item)</button>
+        <br>
+        <button class="btn-trade-out" id="btn-trade-out-minor">Trade Out 100 gp (Minor Item)</button>
+        
+        <p id="display-trade-out"></p>
+        <p class="treasure-displays" id="display-trade-out-magic-or-mundane"></p>
+        <p class="treasure-displays" id="display-treasure-quality"></p>
+        <p class="treasure-displays" id="display-treasure-category"></p>
+        <p class="treasure-displays" id="display-treasure-name"></p>
+        <p class="treasure-displays" id="display-treasure-description"></p>
+
+        <br>
+        <hr>
+
+        <h3>Referee Tweaks / Developer Testing</h3>
+
+        <label class="label-developer" for="input-set-trade-out-chance">Chance of Trade Out (%)</label>
+        <input id="input-set-trade-out-chance" type="number" placeholder="Default is 10%">
+        <button id="btn-set-trade-out-chance">Set</button>
+        <label for="btn-set-trade-out-chance" id="display-trade-out-chance">10%</label>
+        
+        <br><br>
+        
+        <label class="label-developer" for="input-set-magic-item-chance">Chance of Magic Item (%)</label>
+        <input id="input-set-magic-item-chance" type="number" placeholder="Default is 5% (1/20)">
+        <button id="btn-set-magic-item-chance">Set</button>
+        <label for="btn-set-magic-item-chance" id="display-magic-item-chance">5%</label>
+    </details>
+    
+
+
+    <script src="whitebox.js"></script>
+    <script src="whitebox_character.js"></script>
+    <script src="whitebox_starter_packs.js"></script>
+    <script src="whitebox_convert_xp_to_coins.js"></script>
+    <script src="whitebox_scrolls.js"></script>
+    <script src="whitebox_potions_logic.js"></script>
+    <script src="whitebox_spells.js"></script>
+    <script src="whitebox_weapons_armor.js"></script>
+    <script src="whitebox_weapons_armor_logic.js"></script>
+    <script src="whitebox_miscMagicItems.js"></script>
+
+    <script>
+
+        const treasureQualities = {
+            major: {quality: "Major", modifier: 12, miscModifier: 40, potion_rolls: 6},
+            medium: {quality: "Medium", modifier: 6, miscModifier: 20, potion_rolls: 3},
+            minor: {quality: "Minor", modifier: 0, miscModifier: 0, potion_rolls: 1}
+        };
+        
+        const inputMonsterXp = document.getElementById("input-monster-xp");
+        const btnCalculateTreasure = document.getElementById("btn-calculate-treasure");
+        const displayTreasure = document.getElementById('display-treasure');
+        
+        const btnTradeOutMajor = document.getElementById('btn-trade-out-major');
+        const btnTradeOutMedium = document.getElementById('btn-trade-out-medium');
+        const btnTradeOutMinor = document.getElementById('btn-trade-out-minor');
+
+        const displayTradeOut = document.getElementById('display-trade-out');
+        const displayTradeOutMagicOrMundane = document.getElementById('display-trade-out-magic-or-mundane');
+
+        const displayTreasureCategory = document.getElementById('display-treasure-category');
+
+        const displayTreasureQuality = document.getElementById('display-treasure-quality');
+        const displayTreasureName = document.getElementById('display-treasure-name');
+        const displayTreasureDescription = document.getElementById('display-treasure-description');
+
+        // Group the displays:
+        const treasureDisplays = document.getElementsByClassName('treasure-displays');
+
+        // GM Developer Tools
+        const inputSetTradeOutChance = document.getElementById('input-set-trade-out-chance');
+        const btnSetTradeOutChance = document.getElementById('btn-set-trade-out-chance');
+        const displayTradeOutChance = document.getElementById('display-trade-out-chance');
+        const inputSetMagicItemChance = document.getElementById('input-set-magic-item-chance');
+        const btnSetMagicItemChance = document.getElementById('btn-set-magic-item-chance');
+        const displayMagicItemChance = document.getElementById('display-magic-item-chance');
+
+        let chanceOfTradeOut = 10; // DEFAULT 10
+        let chanceOfTradeOutAsInt = 10; // DEFAULT 1/10 10%
+        let chanceOfMagicItem = 5; // DEFAULT 1/20, 5%
+        let chanceOfMagicItemAsInt = 5; // DEFAULT 1/20, 5%
+
+        let scrollUser = "";
+        let treasureType = "";
+        let treasureCategory = "";
+        let treasureQuality = "";
+        let treasureQualityTableBonus = 0;
+        let magicalOrMundaneItem = "";
+        
+        /// LISTENERS
+        btnCalculateTreasure.addEventListener('click', () => {
+            calculateTreasure();
+        });
+
+        btnTradeOutMajor.addEventListener('click', () => {
+            treasureType = treasureQualities.major;
+            tradeOutTreasure();
+        });
+
+        btnTradeOutMedium.addEventListener('click', () => {
+            treasureType = treasureQualities.medium;
+            tradeOutTreasure();
+        });
+
+        btnTradeOutMinor.addEventListener('click', () => {
+            treasureType = treasureQualities.minor;
+            tradeOutTreasure();
+        });
+
+        // GM / DEVELOPER LISTENERS
+        btnSetTradeOutChance.addEventListener('click', () => {
+            chanceOfTradeOut = inputSetTradeOutChance.value;
+            chanceOfTradeOutAsInt = Number(chanceOfTradeOut);
+            displayTradeOutChance.innerHTML = chanceOfTradeOutAsInt + "%";
+        });
+
+        btnSetMagicItemChance.addEventListener('click', () => {
+            chanceOfMagicItem = inputSetMagicItemChance.value;
+            chanceOfMagicItemAsInt = Number(chanceOfMagicItem);
+            displayMagicItemChance.innerHTML = chanceOfMagicItemAsInt + "%";
+        });
+    </script>
+</body>
+</html>
