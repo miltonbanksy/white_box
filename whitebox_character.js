@@ -43,8 +43,28 @@ const classes = [
         saving_throw: 14, 
         saving_throw_bonus: "+2 vs. death, poison"
     },
-    {class: "Magic User", hd: "1d6", hpBase: () => roll1dx(6), primary_stat: "INT", xp_next: 2500, saving_throw: 15, saving_throw_bonus: "+2 vs. spells (incl. wands, staves)"},
-    {class: "Cleric", hd: "1d6", hpBase: () => roll1dx(6), primary_stat: "WIS", xp_next: 1500, saving_throw: 15, saving_throw_bonus: "+2 vs. poison, paralysis"}
+    {
+        class: "Magic User", 
+        hd: "1d6", 
+        hpBase: () => roll1dx(6), 
+        primary_stat: "INT", 
+        xp_next: 2500, 
+        saving_throw: 15, 
+        saving_throw_bonus: "+2 vs. spells (incl. wands, staves)"
+    },
+    {
+        class: "Cleric", 
+        hd: "1d6", 
+        hpBase: () => roll1dx(6), 
+        primary_stat: "WIS", 
+        xp_next: 1500, 
+        saving_throw: 15, 
+        saving_throw_bonus: "+2 vs. poison, paralysis",
+        abilities: `Weapon And Armor Restrictions
+        <br>Because of secret religious practices, Clerics may only use blunt weapons (club, flail, mace, etc.) and the only missile weapon they are allowed is oil. Clerics have no armor restrictions.
+        <br><br>Spell Casting
+        <br>Clerics cast divine spells from a specific spell list, as per the Cleric Advancement table. Each day, the Cleric prays for a certain set of spells, choosing any spells from the standard list. Clerics of specific gods might have entirely different sets of spells as designed by the Referee, but the standard Cleric uses the standard spell list.`
+    }
 ];
 
 const character = {
