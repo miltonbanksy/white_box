@@ -1,18 +1,26 @@
+const inputMonsterName = document.getElementById('input-monster-name');
+const btnFindMonsterName = document.getElementById('btn-find-monster-name');
+
+btnFindMonsterName.addEventListener('click', () => {
+    const monsterName = arrayMonsters.find(array => array.name === inputMonsterName);
+    console.log(monsterName);
+});
+
 // Template
 /*
 {
         name: "",
         form: "",
-        hit_dice: 0,
+        hit_dice: ,
         HDE: 0,
-        toHitBonus: 0,
-        armor_class_descend: 0,
-        armor_class_ascend: 0,
+        toHitBonus: ,
+        armor_class_descend: ,
+        armor_class_ascend: ,
         attack: "",
         special: "",
-        move: 12,
+        move: ,
         XP: ,
-        saving_throw: 0,
+        saving_throw: ,
         dungeon_levels: [],
         terrain: [""],
         notes: ""
