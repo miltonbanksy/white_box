@@ -2,7 +2,9 @@ const selectMonsterByName = document.getElementById('select-monster-by-name');
 const inputMonsterName = document.getElementById('input-monster-name');
 const btnFindMonsterName = document.getElementById('btn-find-monster-name');
 const selectMonsterByDungeonLevel = document.getElementById('select-monsters-by-dungeon-level');
+const selectMonsterByTerrain = document.getElementById('select-monsters-by-terrain');
 const displayMonsterDetails = document.getElementById('display-monster-details');
+
 
 function displayMonsters(monsterData) {
     displayMonsterDetails.innerHTML = `
@@ -15,6 +17,7 @@ function displayMonsters(monsterData) {
     <p>${monsterData.notes}</p>
     `;
 }
+
 
 function getArrayOfMonsterNames() {
     // Clear existing options (important if you ever rebuild)
@@ -39,6 +42,24 @@ function getArrayOfMonsterNames() {
 }
 
 
+function getArrayOfTerrains() {
+    // Clear existing options
+    selectMonsterByTerrain.innerHTML = "";
+
+    // "Choose..." option
+    const optionSelect = document.createElement('option');
+    optionSelect.textContent = "Choose...";
+    optionSelect.value = "";
+    selectMonsterByTerrain.appendChild(optionSelect);
+
+    for (let i = 0; i < terrains.length; i++) {
+        const option = document.createElement('option');
+        option.textContent = terrains[i];
+        option.value = terrains[i];
+        selectMonsterByTerrain.appendChild(option);
+    }
+};
+
 
 // Build Select Widget for 'Search by Dungeon Level'
 for (let l = 1; l <= 10; l++) {
@@ -54,19 +75,12 @@ optionSelect.value = 0;
 selectMonsterByDungeonLevel.add(optionSelect, selectMonsterByDungeonLevel[0]);
 selectMonsterByDungeonLevel.value = optionSelect.value;
 
+
 function capitalizeFirstLetter(val) {
     return String(val).charAt(0).toUpperCase() + String(val).slice(1);
 }
 
-function filterByDungeonLevel(monsters, level) {
-    const dungeonLevel = Number(level);
 
-    if (dungeonLevel === 0) return [];
-
-    return arrayMonsters.filter(monster =>
-        monster.dungeon_levels.includes(dungeonLevel)
-    );
-};
 
 // // LISTENERS
 
@@ -75,6 +89,7 @@ selectMonsterByName.addEventListener('change', (event) => {
 
     displayMonsters(monsterDetails);
 });
+
 
 btnFindMonsterName.addEventListener('click', () => {
     const input = inputMonsterName.value.trim();
@@ -91,6 +106,15 @@ btnFindMonsterName.addEventListener('click', () => {
     displayMonsters(monsterData);
 });
 
+function filterByDungeonLevel(monsters, level) {
+    const dungeonLevel = Number(level);
+
+    if (dungeonLevel === 0) return [];
+
+    return arrayMonsters.filter(monster =>
+        monster.dungeon_levels.includes(dungeonLevel)
+    );
+};
 
 selectMonsterByDungeonLevel.addEventListener('change', (event) => {
     const selectedLevel = event.target.value;
@@ -105,6 +129,26 @@ selectMonsterByDungeonLevel.addEventListener('change', (event) => {
         : "<p>No monsters found for this dungeon level.</p>";
 });
 
+function filterByTerrain(monsters, terrain) {
+    const selectedTerrain = terrain;
+
+    return arrayMonsters.filter(monster =>
+        monster.terrain.includes(selectedTerrain)
+    );
+}
+
+selectMonsterByTerrain.addEventListener('change', (event) => {
+    const selectedTerrain = event.target.value;
+
+    // To be continued...
+    const matchingMonsters = filterByTerrain(arrayMonsters, selectedTerrain);
+
+    displayMonsterDetails.innerHTML = matchingMonsters.length
+        ? matchingMonsters.map(m => `<p>${m.name}`).join("")
+        : "<p>No monsters found in this territory.</p>";
+});
+
 
 // Start up
 getArrayOfMonsterNames();
+getArrayOfTerrains();
