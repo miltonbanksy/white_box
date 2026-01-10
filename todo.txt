@@ -3,3 +3,13 @@ TO DO
 Complete 'class' abilities info to be shown on character generation.
 
 Create a 'random 1st-Level spell generator' button. 
+
+
+MONSTERS
+* Add the rest of the monsters
+
+
+
+
+DONE
+* Random Wilderness Encounter Generator √

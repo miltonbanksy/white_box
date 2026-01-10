@@ -1,6 +1,4 @@
 const selectMonsterByName = document.getElementById('select-monster-by-name');
-const inputMonsterName = document.getElementById('input-monster-name');
-const btnFindMonsterName = document.getElementById('btn-find-monster-name');
 const selectMonsterByDungeonLevel = document.getElementById('select-monsters-by-dungeon-level');
 const selectMonsterByTerrain = document.getElementById('select-monsters-by-terrain');
 const displayRandomDungeonMonster = document.getElementById('display-random-dungeon-monster');
@@ -89,23 +87,10 @@ selectMonsterByName.addEventListener('change', (event) => {
     const monsterDetails = arrayMonsters[event.target.value];
 
     displayMonsters(monsterDetails);
+
+    selectMonsterByName.selectedIndex = 0;
 });
 
-
-btnFindMonsterName.addEventListener('click', () => {
-    const input = inputMonsterName.value.trim();
-    const inputToCaps = capitalizeFirstLetter(input);
-    const monsterData = arrayMonsters.find(m => m.name === inputToCaps);
-
-    if (!monsterData) {
-        alert("Sorry, monster not found.");
-        return;
-    }
-
-    inputMonsterName.value = "";
-
-    displayMonsters(monsterData);
-});
 
 function filterByDungeonLevel(monsters, level) {
     const dungeonLevel = Number(level);
@@ -166,8 +151,12 @@ function filterByTerrain(monsters, terrain) {
 selectMonsterByTerrain.addEventListener('change', (event) => {
     const selectedTerrain = event.target.value;
 
-    // To be continued...
     const matchingMonsters = filterByTerrain(arrayMonsters, selectedTerrain);
+
+    const randomWildernessMonsterIndex = Math.floor(Math.random() * matchingMonsters.length);
+    const randomWidlernessMonster = matchingMonsters[randomWildernessMonsterIndex];
+
+    displayRandomDungeonMonster.innerHTML = `Random ${selectedTerrain} Monster: ${randomWidlernessMonster.name}`;
 
     displayMonsterDetails.innerHTML = matchingMonsters.length
         ? matchingMonsters.map(m => `<p>${m.name}`).join("")
