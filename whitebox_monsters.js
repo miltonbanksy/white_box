@@ -113,6 +113,24 @@ const arrayMonsters = [
         notes: "Black puddings are amorphous globs with an acidic surface. They are subterranean predators and scavengers. Any weapon or armor contacting a black pudding will be eaten away by the acid as follows: weapon (1 hit by weapon on the pudding), chain mail or lesser armor (1 hit by pudding), plate mail (2 hits by pudding). If a weapon or armor is magical, it can take an additional hit per +1 before being dissolved. They are immune to cold and divide when attacked by lightning."
     },
     {
+        name: "Blink Dog",
+        form: "Monster",
+        hit_dice: 6,
+        hit_dice_mod: 0,
+        HDE: 4,
+        toHitBonus: 6,
+        armor_class_descend: 5,
+        armor_class_ascend: 14,
+        attack: "Bite",
+        special: "Teleport",
+        move: 12,
+        XP: 120,
+        saving_throw: 13,
+        dungeon_levels: [6],
+        terrain: ["Open", "Forest"],
+        notes: "Blink dogs are pack hunters, intelligent and usually friendly to those who are not of evil intent. They can teleport short distances (without error) and attack in the same turn—in most cases (75%) a blink dog will be able to teleport behind an opponent and attack from the rear (with bonuses)."
+    },
+    {
         name: "Kobold",
         form: "Humanoid",
         hit_dice: 0,
