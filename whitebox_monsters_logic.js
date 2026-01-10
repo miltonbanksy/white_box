@@ -118,7 +118,24 @@ function filterByDungeonLevel(monsters, level) {
 
 selectMonsterByDungeonLevel.addEventListener('change', (event) => {
     const selectedLevel = event.target.value;
+    console.log(`Selected Level: ${selectedLevel}`);
 
+    const d6 = roll1dx(6);
+    
+    //const encounterLevel = arrayEncounterLevelByDungeonLevel[selectedLevel][d6].lv;
+
+    const encounterLevel = arrayEncounterLevelByDungeonLevel.dungeon_level[selectedLevel].roll[d6].lv;
+    console.log(encounterLevel);
+
+    // Find all creatures at [encounterLevel]
+
+
+    // Randomly pick one creature
+
+
+
+
+    // Find matching monsters
     const matchingMonsters = filterByDungeonLevel(arrayMonsters, selectedLevel);
 
     console.log(matchingMonsters);

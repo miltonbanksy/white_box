@@ -1,19 +1,20 @@
 
 const terrains = ["Barren", "Coast", "Forest", "Hills", "Jungle", "Mountains", "Open", "River", "Settled", "Swamp"];
 
-// This is not right... yet... thinking about it.
-const arrayEncounterLevelByDungeonLevel = [
-    {level: 1, low: 1, mid: 2, high: 3},
-    {level: 2, low: 1, mid: 2, high: 3},
-    {level: 3, low: 1, mid: 4, high: 6},
-    {level: 4, low: 1, mid: 4, high: 6},
-    {level: 5, low: 1, mid: 4, high: 6},
-    {level: 6, low: 1, mid: 4, high: 6},
-    {level: 7, low: 1, mid: 4, high: 6},
-    {level: 8, low: 1, mid: 4, high: 6},
-    {level: 9, low: 1, mid: 4, high: 6},
-    {level: 10, low: 1, mid: 4, high: 6},
-]
+const arrayEncounterLevelByDungeonLevel = {
+    dungeon_level: {
+        1: {roll: {1: {lv: 1}, 2: {lv: 1}, 3: {lv: 1}, 4: {lv: 2}, 5: {lv: 2}, 6: {lv: 3}}},
+        2: {roll: {1: {lv: 1}, 2: {lv: 2}, 3: {lv: 2}, 4: {lv: 2}, 5: {lv: 3}, 6: {lv: 3}}},
+        3: {roll: {1: {lv: 2}, 2: {lv: 3}, 3: {lv: 3}, 4: {lv: 3}, 5: {lv: 4}, 6: {lv: 4}}},
+        4: {roll: {1: {lv: 3}, 2: {lv: 4}, 3: {lv: 4}, 4: {lv: 4}, 5: {lv: 5}, 6: {lv: 5}}},
+        5: {roll: {1: {lv: 4}, 2: {lv: 5}, 3: {lv: 5}, 4: {lv: 5}, 5: {lv: 6}, 6: {lv: 6}}},
+        6: {roll: {1: {lv: 5}, 2: {lv: 6}, 3: {lv: 6}, 4: {lv: 6}, 5: {lv: 7}, 6: {lv: 8}}},
+        7: {roll: {1: {lv: 6}, 2: {lv: 7}, 3: {lv: 7}, 4: {lv: 7}, 5: {lv: 8}, 6: {lv: 9}}},
+        8: {roll: {1: {lv: 7}, 2: {lv: 7}, 3: {lv: 8}, 4: {lv: 8}, 5: {lv: 8}, 6: {lv: 9}}},
+        9: {roll: {1: {lv: 8}, 2: {lv: 8}, 3: {lv: 9}, 4: {lv: 9}, 5: {lv: 9}, 6: {lv: 10}}},
+        10: {roll: {1: {lv: 8}, 2: {lv: 9}, 3: {lv: 9}, 4: {lv: 10}, 5: {lv: 10}, 6: {lv: 10}}}
+    }
+};
 
 // Template
 /*
