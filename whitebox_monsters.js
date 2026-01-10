@@ -1,6 +1,20 @@
 
 const terrains = ["Barren", "Coast", "Forest", "Hills", "Jungle", "Mountains", "Open", "River", "Settled", "Swamp"];
 
+// This is not right... yet... thinking about it.
+const arrayEncounterLevelByDungeonLevel = [
+    {level: 1, low: 1, mid: 2, high: 3},
+    {level: 2, low: 1, mid: 2, high: 3},
+    {level: 3, low: 1, mid: 4, high: 6},
+    {level: 4, low: 1, mid: 4, high: 6},
+    {level: 5, low: 1, mid: 4, high: 6},
+    {level: 6, low: 1, mid: 4, high: 6},
+    {level: 7, low: 1, mid: 4, high: 6},
+    {level: 8, low: 1, mid: 4, high: 6},
+    {level: 9, low: 1, mid: 4, high: 6},
+    {level: 10, low: 1, mid: 4, high: 6},
+]
+
 // Template
 /*
 {
