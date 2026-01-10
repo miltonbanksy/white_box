@@ -73,8 +73,7 @@ function filterByDungeonLevel(monsters, level) {
 selectMonsterByName.addEventListener('change', (event) => {
     const monsterDetails = arrayMonsters[event.target.value];
 
-
-    console.log(`${monsterDetails.name}`);
+    displayMonsters(monsterDetails);
 });
 
 btnFindMonsterName.addEventListener('click', () => {
@@ -89,15 +88,7 @@ btnFindMonsterName.addEventListener('click', () => {
 
     inputMonsterName.value = "";
 
-    displayMonsterDetails.innerHTML = `
-    <b>${monsterData.name}</b> (${monsterData.form})
-    <br>AC: ${monsterData.armor_class_descend}[${monsterData.armor_class_ascend}], HD: ${monsterData.hit_dice}, HDE: ${monsterData.HDE}, MV: ${monsterData.move}, XP: ${monsterData.XP}
-    <br>Attack: ${monsterData.attack} +${monsterData.toHitBonus}, Save: ${monsterData.saving_throw}
-    <br>Special: ${monsterData.special}
-    <br>Dungeon Levels: ${monsterData.dungeon_levels}
-    <br>Terrain: ${monsterData.terrain.join(", ")}
-    <p>${monsterData.notes}</p>
-    `;
+    displayMonsters(monsterData);
 });
 
 
