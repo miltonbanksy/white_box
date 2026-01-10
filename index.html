@@ -85,14 +85,22 @@
     </details>
     <details>
         <summary class="pointer"><b>Monsters</b></summary>
-        <label for="input-monster-name">Search by Name:</label>
+
+        <br>
+
+        <label for="select-monster-by-name">Choose Monster</label>
+        <select id="select-monster-by-name"></select>
+
+        <br>
+
+        <label for="input-monster-name">Search by Name</label>
         <input id="input-monster-name" type="text">
         <button id="btn-find-monster-name">Search</button>
         
         <br>
         
-        <label for="select-monster-name">Search by Dungeon Level</label>
-        <select id="select-monster-name"></select>
+        <label for="select-monsters-by-dungeon-level">Search by Dungeon Level</label>
+        <select id="select-monsters-by-dungeon-level"></select>
         
         <p id="display-monster-details"></p>
     </details>
@@ -145,6 +153,7 @@
     <script src="whitebox_character.js"></script>
     <script src="whitebox_starter_packs.js"></script>
     <script src="whitebox_monsters.js"></script>
+    <script src="whitebox_monsters_logic.js"></script>
     <script src="whitebox_convert_xp_to_coins.js"></script>
     <script src="whitebox_scrolls.js"></script>
     <script src="whitebox_potions_logic.js"></script>
