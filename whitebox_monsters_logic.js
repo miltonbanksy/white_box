@@ -135,6 +135,7 @@ selectMonsterByDungeonLevel.addEventListener('change', (event) => {
     const randomDungeonMonster = matchingMonsters2[randomDungeonMonsterIndex];
 
     if (!randomDungeonMonster) {
+        selectMonsterByDungeonLevel.selectedIndex = 0;
         displayRandomDungeonMonster.innerHTML = "Random Dungeon Monster: None";
         return;
     }

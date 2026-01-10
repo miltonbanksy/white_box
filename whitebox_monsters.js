@@ -19,23 +19,23 @@ const arrayEncounterLevelByDungeonLevel = {
 // Template
 /*
 {
-        name: "",
-        form: "",
-        hit_dice: number,
-        hit_dice_mod: number
-        HDE: number,
-        toHitBonus: number,
-        armor_class_descend: number,
-        armor_class_ascend: number,
-        attack: "",
-        special: "",
-        move: number,
-        XP: number,
-        saving_throw: number,
-        dungeon_levels: [],
-        terrain: [""],
-        notes: ""
-    },
+    name: "",
+    form: "",
+    hit_dice: number,
+    hit_dice_mod: number,
+    HDE: number,
+    toHitBonus: number,
+    armor_class_descend: number,
+    armor_class_ascend: number,
+    attack: "",
+    special: "",
+    move: number,
+    XP: number,
+    saving_throw: number,
+    dungeon_levels: [],
+    terrain: [""],
+    notes: ""
+},
 */
 
 
@@ -93,6 +93,24 @@ const arrayMonsters = [
         dungeon_levels: [1, 2],
         terrain: ["Coast", "River", "Open", "Forest", "Swamp", "Jungle"],
         notes: "A giant fire beetle's oily light-glands glow red, and continue to give off light for 1d6 days after they are removed (shedding light in a 10 foot radius)."
+    },
+    {
+        name: "Black Pudding",
+        form: "Unknown",
+        hit_dice: 10,
+        hit_dice_mod: 0,
+        HDE: 11,
+        toHitBonus: 0,
+        armor_class_descend: 6,
+        armor_class_ascend: 13,
+        attack: "Strike",
+        special: "Acidic",
+        move: 6,
+        XP: 1700,
+        saving_throw: 9,
+        dungeon_levels: [10],
+        terrain: ["Barren", "Coast", "Forest", "Hills", "Jungle", "Mountains", "Open", "River", "Settled", "Swamp"],
+        notes: "Black puddings are amorphous globs with an acidic surface. They are subterranean predators and scavengers. Any weapon or armor contacting a black pudding will be eaten away by the acid as follows: weapon (1 hit by weapon on the pudding), chain mail or lesser armor (1 hit by pudding), plate mail (2 hits by pudding). If a weapon or armor is magical, it can take an additional hit per +1 before being dissolved. They are immune to cold and divide when attacked by lightning."
     },
     {
         name: "Kobold",
