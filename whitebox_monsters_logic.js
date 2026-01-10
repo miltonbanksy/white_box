@@ -3,6 +3,7 @@ const inputMonsterName = document.getElementById('input-monster-name');
 const btnFindMonsterName = document.getElementById('btn-find-monster-name');
 const selectMonsterByDungeonLevel = document.getElementById('select-monsters-by-dungeon-level');
 const selectMonsterByTerrain = document.getElementById('select-monsters-by-terrain');
+const displayRandomDungeonMonster = document.getElementById('display-random-dungeon-monster');
 const displayMonsterDetails = document.getElementById('display-monster-details');
 
 
@@ -128,11 +129,14 @@ selectMonsterByDungeonLevel.addEventListener('change', (event) => {
     console.log(encounterLevel);
 
     // Find all creatures at [encounterLevel]
-
+    // const monsterData = arrayMonsters.find(m => m.name === inputToCaps);
+    const matchingMonsters2 = filterByDungeonLevel(arrayMonsters, encounterLevel);
+    console.log(`Matching Monsters NEW: ${matchingMonsters2}`)
 
     // Randomly pick one creature
-
-
+    const randomDungeonMonsterIndex = Math.floor(Math.random() * matchingMonsters2.length);
+    const randomDungeonMonster = matchingMonsters2[randomDungeonMonsterIndex];
+    displayRandomDungeonMonster.innerHTML = `Random Dungeon Monster: ${randomDungeonMonster.name}`;
 
 
     // Find matching monsters
