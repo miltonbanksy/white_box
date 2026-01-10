@@ -36,5 +36,5 @@ function calculateTreasure() {
     gold_pieces = get_percentage(treasure_value, percentage_gold);
 
     displayTreasure.innerText =
-        `Teasure Value: ${treasure_value}gp. (Copper Pieces: ${copper_pieces}, Silver Pieces: ${silver_pieces}, Gold Pieces: ${gold_pieces})`;
+        `Treasure Value: ${treasure_value}gp. (Copper Pieces: ${copper_pieces}, Silver Pieces: ${silver_pieces}, Gold Pieces: ${gold_pieces})`;
 };
