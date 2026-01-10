@@ -10,10 +10,10 @@ const displayMonsterDetails = document.getElementById('display-monster-details')
 function displayMonsters(monsterData) {
     displayMonsterDetails.innerHTML = `
     <b>${monsterData.name}</b> (${monsterData.form})
-    <br>AC: ${monsterData.armor_class_descend}[${monsterData.armor_class_ascend}], HD: ${monsterData.hit_dice}, HDE: ${monsterData.HDE}, MV: ${monsterData.move}, XP: ${monsterData.XP}
+    <br>AC: ${monsterData.armor_class_descend}[${monsterData.armor_class_ascend}], HD: ${monsterData.hit_dice}+${monsterData.hit_dice_mod}, HDE: ${monsterData.HDE}, MV: ${monsterData.move}, XP: ${monsterData.XP}
     <br>Attack: ${monsterData.attack} +${monsterData.toHitBonus}, Save: ${monsterData.saving_throw}
     <br>Special: ${monsterData.special}
-    <br>Dungeon Levels: ${monsterData.dungeon_levels}
+    <br>Dungeon Levels: ${monsterData.dungeon_levels.join(", ")}
     <br>Terrain: ${monsterData.terrain.join(", ")}
     <p>${monsterData.notes}</p>
     `;
@@ -129,13 +129,17 @@ selectMonsterByDungeonLevel.addEventListener('change', (event) => {
     console.log(encounterLevel);
 
     // Find all creatures at [encounterLevel]
-    // const monsterData = arrayMonsters.find(m => m.name === inputToCaps);
     const matchingMonsters2 = filterByDungeonLevel(arrayMonsters, encounterLevel);
     console.log(`Matching Monsters NEW: ${matchingMonsters2}`)
 
     // Randomly pick one creature
     const randomDungeonMonsterIndex = Math.floor(Math.random() * matchingMonsters2.length);
     const randomDungeonMonster = matchingMonsters2[randomDungeonMonsterIndex];
+
+    if (!randomDungeonMonster) {
+        displayRandomDungeonMonster.innerHTML = "Random Dungeon Monster: None";
+        return;
+    }
     displayRandomDungeonMonster.innerHTML = `Random Dungeon Monster: ${randomDungeonMonster.name}`;
 
 

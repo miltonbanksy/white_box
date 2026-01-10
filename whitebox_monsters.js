@@ -21,7 +21,8 @@ const arrayEncounterLevelByDungeonLevel = {
 {
         name: "",
         form: "",
-        hit_dice: "",
+        hit_dice: number,
+        hit_dice_mod: number
         HDE: number,
         toHitBonus: number,
         armor_class_descend: number,
@@ -42,7 +43,8 @@ const arrayMonsters = [
     {
         name: "Banshee",
         form: "Undead",
-        hit_dice: "7d6",
+        hit_dice: 7,
+        hit_dice_mod: 0,
         HDE: 11,
         toHitBonus: 7,
         armor_class_descend: 0,
@@ -59,7 +61,8 @@ const arrayMonsters = [
     {
         name: "Basilisk",
         form: "Monster",
-        hit_dice: "6d6",
+        hit_dice: 6,
+        hit_dice_mod: 0,
         HDE: 8,
         toHitBonus: 6,
         armor_class_descend: 4,
@@ -76,7 +79,8 @@ const arrayMonsters = [
     {
         name: "Beetle, Giant Fire",
         form: "Animal",
-        hit_dice: "1d6 + 3",
+        hit_dice: 1,
+        hit_dice_mod: 3,
         HDE: 1,
         toHitBonus: 1,
         armor_class_descend: 4,
@@ -93,7 +97,8 @@ const arrayMonsters = [
     {
         name: "Kobold",
         form: "Humanoid",
-        hit_dice: "1/2",
+        hit_dice: 0,
+        hit_dice_mod: 0,
         HDE: 0,
         toHitBonus: 0,
         armor_class_descend: 6,
