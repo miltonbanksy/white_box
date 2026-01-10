@@ -123,8 +123,6 @@ selectMonsterByDungeonLevel.addEventListener('change', (event) => {
 
     const d6 = roll1dx(6);
     
-    //const encounterLevel = arrayEncounterLevelByDungeonLevel[selectedLevel][d6].lv;
-
     const encounterLevel = arrayEncounterLevelByDungeonLevel.dungeon_level[selectedLevel].roll[d6].lv;
     console.log(encounterLevel);
 
@@ -152,6 +150,8 @@ selectMonsterByDungeonLevel.addEventListener('change', (event) => {
     displayMonsterDetails.innerHTML = matchingMonsters.length
         ? matchingMonsters.map(m => `<p>${m.name}</p>`).join("")
         : "<p>No monsters found for this dungeon level.</p>";
+
+    selectMonsterByDungeonLevel.selectedIndex = 0;
 });
 
 function filterByTerrain(monsters, terrain) {
